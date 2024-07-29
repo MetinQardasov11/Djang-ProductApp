@@ -1,0 +1,15 @@
+{% load static %}
+
+<div class="card border border-2 border-black mb-3" style="width: 100%;">
+    <div class="row align-items-center px-3">
+    <div class="col-md-4">
+        <img src="{{ product.image.url }}" class="img-fluid rounded-start m-2" />
+    </div>
+    <div class="col-md-8">
+        <div class="card-body">
+        <h5 class="card-title"><a href="{% url 'product:product_detail' product.slug %}">{{ product.name }}</a></h5>
+        <p class="card-text">{{ product.description|striptags|slice:"20:100" }}</p>
+        </div>
+    </div>
+    </div>
+</div>

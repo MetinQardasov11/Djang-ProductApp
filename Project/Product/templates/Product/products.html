@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Products{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'Product/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+    <section>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-3">
+                    {% include 'partials/_categories.html' %}
+                </div>
+                <div class="col-8">
+                    <h1>Products Page</h1>
+                    <hr>
+                    {% if products|length > 0 %}
+                    {% for product in products %}
+                        {% if product.is_active %}
+                            {% include 'Product/partials/_product.html' %}
+                        {% endif %}
+                    {% endfor %}
+                    {% else %}
+                        <div class="alert alert-success">No Products Available</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'Product/js/script.js' %}"></script>
+{% endblock %}
