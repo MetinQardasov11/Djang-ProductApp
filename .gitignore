@@ -30,5 +30,3 @@ wheels/
 
 # Django stuff:
 *.log
-
-db.sqlite3
